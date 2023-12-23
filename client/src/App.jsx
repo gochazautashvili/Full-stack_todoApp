@@ -6,6 +6,7 @@ function App() {
   const [todo, setTodo] = useState([])
   const [task, setTask] = useState("")
 
+  axios.defaults.withCredentials = true
 
   useEffect(() => {
     axios.get("https://full-stack-todo-app-sepia.vercel.app/getTodo").then(todo => setTodo(todo.data)).catch(err => console.log(err))
