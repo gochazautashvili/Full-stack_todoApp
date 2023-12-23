@@ -5,7 +5,7 @@ const TodoModel = require("./models/Users")
 
 const app = express()
 app.use(cors({
-    origin: [""],
+    origin: ["https://full-stack-todo-app-front8765.vercel.app/"],
     methods: ["POST", "GRT", "DELETE", "PUT"],
     credentials: true
 }))
