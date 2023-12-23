@@ -4,7 +4,11 @@ const cors = require("cors")
 const TodoModel = require("./models/Users")
 
 const app = express()
-app.use(cors())
+app.use(cors({
+    origin: [""],
+    methods: ["POST", "GRT", "DELETE", "PUT"],
+    credentials: true
+}))
 app.use(express.json())
 
 mongoose.connect("mongodb+srv://gocha:514113131@cluster0.zi9xhux.mongodb.net/todo?retryWrites=true&w=majority")
