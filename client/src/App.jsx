@@ -6,24 +6,22 @@ function App() {
   const [todo, setTodo] = useState([])
   const [task, setTask] = useState("")
 
-  axios.defaults.withCredentials = true
-
   useEffect(() => {
-    axios.get("https://full-stack-todo-app-sepia.vercel.app/getTodo").then(todo => setTodo(todo.data)).catch(err => console.log(err))
+    axios.get("https://localhost/getTodo").then(todo => setTodo(todo.data)).catch(err => console.log(err))
   }, [])
 
   const handlePost = (e) => {
     if (e.key == "Enter") {
-      axios.post("https://full-stack-todo-app-sepia.vercel.app/postTodo", { task: task }).then(result => location.reload()).catch(err => console.log(err))
+      axios.post("https://localhost/postTodo", { task: task }).then(result => location.reload()).catch(err => console.log(err))
     }
   }
 
   const deletePost = (id) => {
-    axios.delete("https://full-stack-todo-app-sepia.vercel.app/deleteTodo/" + id,).then(result => location.reload()).catch(err => console.log(err))
+    axios.delete("https://localhost/deleteTodo/" + id,).then(result => location.reload()).catch(err => console.log(err))
   }
 
   const updatePost = (id) => {
-    axios.put("https://full-stack-todo-app-sepia.vercel.app/updateTodo/" + id,).then(result => location.reload()).catch(err => console.log(err))
+    axios.put("https://localhost/updateTodo/" + id,).then(result => location.reload()).catch(err => console.log(err))
   }
 
   return (
